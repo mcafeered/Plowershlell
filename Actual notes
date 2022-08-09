@@ -1,1 +1,56 @@
+use xfreerdp /u:student /v:<IP_Address> /dynamic-resolution +glyph-cache +clipboard to get into the windows gui
 
+always start with update-help
+
+use -force to make a cmdlet do something without asking
+
+use -Erroraction which specifies what to do with an error when it comes up
+
+use -showwindow to show a man page in a separate windowget_help
+
+ get-childitem -path C:\ -recurse -filter *.pf -name  ----  a script displaying the use of different modules for a command
+ switch parameter is boolean, when used the parammeter is one, while not in use its turned off (-recurse) is the switch (boolean operator) 
+ 
+ get-service -name power,Dnscache  ----  can separate multiple values to one parameter via the use of a comma, spaces delimit different parameters
+ modules have positional parameters that dont need to be declared and can be found by finding the value out on its own without a parameter 
+ ex. get-service power,Dnscache  ----  the -name doesnt need to be declared since powershell finds the first values without a parameter and applies the positional parameter to said value
+ 
+ get-command gets commands that are used in powershell
+ use -verb <pattern to search for> to find specific commands 
+ can also use -noun <pattern> to find specific commands 
+ both of these use astericks to denote whether it starts or stops with the pattern ex. *item or item*
+ can also just use get-command *<keyword>* without a parameter to search for said keyword ignoring noun or verb, though this requires the use of astericks
+ 
+ can also use get-help *<keyword>* to also search the help files for commands
+ 
+ can use get-alias -name to find aliases (or use $alias:<alias name>) 
+ can use set-alias <alias name> <alias command> to create aliases which can be deleted using del alias:<alias name>
+ 
+ when using variables in powershell variables must be declared and called using a $ ex. $var = 17 
+ can still do $var - 1 = 16
+ can create multiple variables on one line using commas between calls ex. $var,$var1=17, 23
+ you can also chain ='s to make multiple variables equal one number ex. $var1 = $var2 = 17
+ when using the get-variable cmdlet you omit the $
+ $args an enumerator which enumerates through undeclared input
+ $input an enumerator which enumerates all input passed from a function
+ $_ or $PSItem contains the current object in the pipeline
+ $Profile contains the full path of the powershell profile for the current user
+ $null is the void black hole pit of infinite emptiness
+ $true and $false are used to decide truity or falsity
+ environmental variables are system wide variables that load every time on startup which can be called using $env:<varName> to view what value is being stored in said variable
+ remove variables using remove-item variable:<variable name>
+ variables can have their type changed (ex. string integer) which can be viewd using <variable>.gettype().name
+ can force something to be an integer using [int]$int="27" using the [int or float or string or array] to change the type temporarily
+ powershell automatically converts hexadecimal into human-readable format
+ 
+ create an array using $array=@() to create an empty array
+ $number_arr= 4,5,6 is also considered an array by powershell, one variable holding multiple values
+ [array]$blank_array="" when creating an array in this way you must have some sort of value attributed to said array which means it must have 1 value when counted (throws off indexes)
+ can get the count of indexes in an array using <name of array>.count for the number of objects in said array
+ arrays can have values added to them using <name of array> += <value>
+ $array -is [array] is a way to write "is this object an array?"
+ $poly_arr = (get-computerinfo), "help me, im trapped" , 6472 is a polymorphic array which contains many different values
+ index numbers can be referenced using <array>[<index>] or <arrray> | select-object -index <number> -1 still indexes the last index in the array while also referencing multiple indexes using [1,5,456]
+ for sequential numbers just do it like bash 4..50 which iterates through the entire range of given numbers
+ 
+ 
