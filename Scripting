@@ -1,1 +1,88 @@
+Q1 update-help
+Q2 get-process and start/stop-process
+Q3 Get-Service
+Q4 Write-Output
+Q5 clear/get/new/remove/set-variable
+Q6 get-command
+Q7 Read-Host
+
+
+
+
+Q1 Get-Process
+Q2 Get-Process -name s*
+Q3 gal == get-alias - dir ==  get-childitem - echo == write-output - ? == where-object - % == ForEach-Object - ft == Format-Table
+Q4 get-netfirewallrule
+Q5 new-alias -name gh -value get-help
+
+
+
+
+Q1 $var1 = 27
+Q2 $var2 = 5
+Q3 $sum = $var1+$var2
+Q4 $sub = $var1-$var2
+Q5 $prod = $var1*$var2
+Q6 $quo = $var1/$var2
+Q7 "$var1 + $var2 = $sum"
+Q8 "$var1 - $var2 = $sub"
+Q9 "$var1 * $var2 = $prod"
+Q10 "$var1 / $var2 = $quo" 
+
+
+
+
+Q1 $a = get-random -Minimum -10 -Maximum 0
+   $b = get-random -Minimum 1 -Maximum 20
+   $array = $a..$b
+
+Q2 $array2 = $b..$a
+
+OR
+
+   $reverse = $array[(array.length-1)..0]
+   $reverse
+   
+   
+   
+For the sake of saving time Im gonna do the entire exercise just for mary
+
+Q1 $employee1 = @{}
+Q2 $employee1.add("Mary","Hopper") and $employee1.add("001","Software Developer")
+Q3 $employee1.add("Username","mhopper001")
+Q4 $employee1['001']="Software Lead"
+Q5 $employee1.add("Status","Management")
+
+
+
+
+Q1 get-process | where-object processname -ne "idle" | sort-object starttime | select-object -first 1 -last 1 -property starttime
+Q2 get-date | select-object dayofweek
+Q3 get-hotfix
+Q4 get-hotfix | sort-object -property installedon | Select-Object Installedon, HotFixId
+Q5 get-hotfix | sort-object -property Description | Select-Object installedon, hotfixid, Description
+
+
+
+
+$Hostinfo = New-Object object
+
+$version = Get-WmiObject Win32_OperatingSystem | Select-Object -expandproperty version 
+$name = Get-WmiObject Win32_ComputerSystem | Select-Object -ExpandProperty name
+$manufacturer = Get-WmiObject Win32_Bios | Select-Object -ExpandProperty Manufacturer
+$disk = Get-WmiObject Win32_logicaldisk | Select-Object -ExpandProperty __path
+$OS = Get-ComputerInfo | Select-Object -ExpandProperty osname
+
+Add-Member -MemberType NoteProperty -Name ComputerName -Value $name -InputObject $Hostinfo
+
+Add-Member -MemberType NoteProperty -Name OperatingSystem -Value $OS -InputObject $Hostinfo
+
+Add-Member -MemberType NoteProperty -Name Version -Value $version -InputObject $Hostinfo
+
+Add-Member -MemberType NoteProperty -Name Manufacturer -Value $manufacturer -InputObject $Hostinfo
+
+Add-Member -MemberType NoteProperty -Name Disks -Value $disk -InputObject $Hostinfo
+
+
+
 
