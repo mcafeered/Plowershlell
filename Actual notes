@@ -125,5 +125,33 @@ switch(<value>) for example could be a regex pattern used in each condition belo
      }
 }
 
+for loop syntax 
+for (initialization; condition; increment)
+{
+     block to be executed 
+}
 
+foreach loop has to go through every index before actually outputting something while foreach-object outputs while going through each index
+
+foreach ($item in expression)
+{
+     block to be executed
+}
+
+$object | foreach-object { code block to be executed } 
+
+while(condition) 
+{
+     block to be executed
+}
+
+do {
+     code block
+}while(condition)
+
+do {
+     code block
+}until(condition)
+
+(get-content <path>)[optional line number] reads data from a file, (set-content -path <path> -value <someValue>)[optional line number] overwrites data to a file while add-content appends data to a file
 
