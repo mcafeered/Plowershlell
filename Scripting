@@ -86,3 +86,23 @@ Add-Member -MemberType NoteProperty -Name Disks -Value $disk -InputObject $Hosti
 
 
 
+$line1 = "Do you have model number: MT5437 for john.doe@sharklasers.com?"
+$line2 = "What model number for john.doe@sharklasers.com?"
+
+if ($line1 -match '\w\w\d\d\d\d') {
+    write-host $matches[0] "is in line1"
+}
+else {
+    write-host "No model number found on line1"
+}
+
+if ($line2 -match '\w\w\d\d\d\d') {
+    write-host $matches[0] "is in line2"
+}
+else {
+    write-host "No model number found on line2"
+}
+
+
+
+
