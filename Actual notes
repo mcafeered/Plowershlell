@@ -117,11 +117,11 @@ else {
 switch statements tests against every condition which means it can pop multiple as opposed to stopping on the first true statement ex.
 switch(<value>)
 {
-     (<condition>) {
+     {<condition>} {
      }
-     (<condition>) {
+     {<condition>} {
      }
-     (<condition>) {
+     {<condition>} {
      }
 }
 
