@@ -115,7 +115,7 @@ else {
 }
 
 switch statements tests against every condition which means it can pop multiple as opposed to stopping on the first true statement ex.
-switch(<value>)
+switch(<value>) for example could be a regex pattern used in each condition below
 {
      {<condition>} {
      }
