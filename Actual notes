@@ -64,7 +64,13 @@ use -showwindow to show a man page in a separate windowget_help
  x,       2
           3
           
-
+hash tables are called using @{} for an empty one which are organized as @{key="value" ; key2="value2"} which can also be put in a variable similar to an array
+you can add key value pairs t a script using <hashtable>.<key> = "<value>" or <hashtable>["<key>"] = "<value>" or <hashtable>.add("<key>","<value>")
+arrays can be values inside of hash tables ex <ordered hash>."<key>" = @("<value>","<value>","<value>","<value>","<value>")
+ordered hash tables are created using [ordered]@{} which can have values added using <ordered hash>["<key>"] = "<value>"
+values can be called from hashes using <hashtable>.'<key>' or <hashtable>['<key>'] all keys or values can be viewed using <hashtable>.keys/values
+more than one key can be called at once ex <hashtable>["<key>","<key>"]
+you can change a keys value by calling it then setting it equal to something else ex <hashtable>['<key>'] = "<new value>"
 
 
 
