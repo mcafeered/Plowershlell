@@ -65,13 +65,22 @@ use -showwindow to show a man page in a separate windowget_help
           3
           
 hash tables are called using @{} for an empty one which are organized as @{key="value" ; key2="value2"} which can also be put in a variable similar to an array
-you can add key value pairs t a script using <hashtable>.<key> = "<value>" or <hashtable>["<key>"] = "<value>" or <hashtable>.add("<key>","<value>")
+you can add key value pairs to a script using <hashtable>.<key> = "<value>" or <hashtable>["<key>"] = "<value>" or <hashtable>.add("<key>","<value>")
 arrays can be values inside of hash tables ex <ordered hash>."<key>" = @("<value>","<value>","<value>","<value>","<value>")
 ordered hash tables are created using [ordered]@{} which can have values added using <ordered hash>["<key>"] = "<value>"
 values can be called from hashes using <hashtable>.'<key>' or <hashtable>['<key>'] all keys or values can be viewed using <hashtable>.keys/values
 more than one key can be called at once ex <hashtable>["<key>","<key>"]
 you can change a keys value by calling it then setting it equal to something else ex <hashtable>['<key>'] = "<new value>"
 
+get-member gets the methods and properties of objects like other commands which can either have the object piped into it which gives more specific methods and properties while get-member -inputobject <object> gives the methods and properties for objects in general
+the methods and properties can then be called using (<object> <possible value>).<property or method> to view what they are for that specific configuration
+methods can also be used by doing .<method>() to actually do the method on the object
 
+write-host sends information straight to the screen while write-output puts values in the pipeline which can be further altered before being printed
+format-list/wide/table creates lists, tables and wide outputs, like how format-table can make tables only show you the values you want ex. get-service | format-table name, status
+
+get-service | sort-object -property status sorts based off the status property found in get-member for get-service
+get-service | group-object -property status groups values based off the property of status
+get-service | sort-object status, name sorts on the status then name properties
 
 
