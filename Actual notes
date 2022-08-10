@@ -83,4 +83,16 @@ get-service | sort-object -property status sorts based off the status property f
 get-service | group-object -property status groups values based off the property of status
 get-service | sort-object status, name sorts on the status then name properties
 
+get-service | where-object { $_.status -eq "running" } running this only displays the running services 
+get-process | select-object -first 10 this only lists the top 10 objects which can also be used to show only specific properties via the -expandproperty 
+
+get-process | where-object processname -ne "idle" | sort-object starttime | select-object -last 10 | format-table processname, starttime gets the 10 processes that have been running the longest on the system
+
+sort-object | get-unique gets only one of each value from an output
+
+measure-object length gets the length of an object like get-childitem which gets the total amount of files and can have -average -maximum -minimum -sum to get other values of file size aswell
+
+compare-object comapres 2 different outputs
+
+
 
