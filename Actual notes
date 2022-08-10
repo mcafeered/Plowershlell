@@ -103,3 +103,27 @@ it works the same way with -le and -ge which with more values on the left will p
 *to make a condtional be case sensitive you can put a c infront of any of the operators ex. -ceq or - cnotlike*
 comparison operators can be chained together using -and or -or to have multiple conditionals be true or any one of them
 
+where-object {} finds only specific things and prints them out and filters everything else out ex. get-childitem | where-object {$_.Length -gt 100} which only shows files bigger than 100
+
+the syntax for if statements is 
+if (<condition>) {
+<commands>
+}
+elseif () {
+}
+else {
+}
+
+switch statements tests against every condition which means it can pop multiple as opposed to stopping on the first true statement ex.
+switch(<value>)
+{
+     (<condition>) {
+     }
+     (<condition>) {
+     }
+     (<condition>) {
+     }
+}
+
+
+
