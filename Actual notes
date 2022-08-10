@@ -94,5 +94,12 @@ measure-object length gets the length of an object like get-childitem which gets
 
 compare-object comapres 2 different outputs
 
-
+if you just have one value -eq to another the output will be true or false, but comparing a value that is bigger on the left side will only print what it matches on the right side ex. "abc", "def" -eq "abc" would print abc which works the same way but opposite for -ne 
+with greater than or less than if the value on the left is bigger in number of values compared to the left only the bigger values will be printed ex. 1,2,3 -gt 2 only 3 will be printed
+it works the same way with -le and -ge which with more values on the left will print the same value and anything above or below it
+-like uses wildcards to compare strings like ? or * as well as regex like [a-z] working the same as -notlike but returning the opposite value
+-match can only use regex patterns to compare text, after doing a match comparison an array called $matches is created which can have values pulled out from it
+-contains sees if a certain element is within an object like a list or array where the list/array has to be on the left while -in requires the list/array to be on the right
+*to make a condtional be case sensitive you can put a c infront of any of the operators ex. -ceq or - cnotlike*
+comparison operators can be chained together using -and or -or to have multiple conditionals be true or any one of them
 
