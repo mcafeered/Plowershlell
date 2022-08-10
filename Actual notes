@@ -53,4 +53,19 @@ use -showwindow to show a man page in a separate windowget_help
  index numbers can be referenced using <array>[<index>] or <arrray> | select-object -index <number> -1 still indexes the last index in the array while also referencing multiple indexes using [1,5,456]
  for sequential numbers just do it like bash 4..50 which iterates through the entire range of given numbers
  
+ arrays can be nested within arrays to create bigger arrays which are created using <array name> = @,&,<another array>,! 
+ to reference the other array first you give the index of the second array then give the index of the value you want within the array ex <array name>[2][2]
+ when arrays are nested the starting array fills out the empty space with null values based off the size of the biggest array within the array, making null values where there is nothing
+ multi dimensional arrays are arrays within arrays within arrays... ex <array>=tri, cir, {1,2,<array>} (this is only an interpretation for humans to understand)
  
+ visual - multidimensional 
+ v,
+ a, b, c, 1
+ x,       2
+          3
+          
+
+
+
+
+
