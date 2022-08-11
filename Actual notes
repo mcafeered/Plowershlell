@@ -213,3 +213,55 @@ function <function name> {
  <code>
 }
  
+positional parameters can be created by doing 
+function Positional-Params {
+ params(
+  [parameter(mandatory=$true,position=0)]
+  [int]
+  $number,
+  [parameter(mandatory=$true,position=0)]
+  [string]
+  $string,
+  [parameter(mandatory=$true,position=0)]
+  [string]
+  $anotherstring
+ )
+ <code>
+}
+
+cmdlet binding can be used to add more functionality to a function and are made by doing (must have param or atleast param()
+function cmdlet-function {
+[CmdletBinding(defaultparametersetname="Tacos")]
+  param(
+    [parameter(parametersetname="Tacos",position=0,mandatory=$true)]
+    $flavor,
+    [parameter(parametersetname="Tacos",mandatory=$true)]
+    $cheese,
+    [parameter(parametersetname="Tacos",mandatory=$true)]
+    $spice
+    [parameter(parametersetname="Burritos",mandatory=$true)]
+    $beans,
+    [parameter(parametersetname="Burritos",mandatory=$true)]
+    $rice,
+  )
+ $paramtersetname = $PSCmdlet.parametersetname
+ "The $Paramtersetname Parameter Set was Utilized"
+}
+parameter sets define a few parameters in a set that can be used while everything else is ignored depending on which set gets called first 
+positions can be used with parametersetnames but are ill-advised
+
+function blocks can be made using
+function function-blocks {
+[cmdletbinding()]
+  param()
+  
+  begin{} #does preprocessing before rest of function executes even before parameters are used, basically this is executed first
+  
+  process{} #This block executes as many times as necessary for each value passed into the function along with $_ to read individual values without $input or $args
+  
+  end{} #One time optional run of code block executed before the output is pushed out to the default output
+}
+
+
+
+
