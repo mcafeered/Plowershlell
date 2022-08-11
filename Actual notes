@@ -155,3 +155,15 @@ do {
 
 (get-content <path>)[optional line number] reads data from a file, (set-content -path <path> -value <someValue>)[optional line number] overwrites data to a file while add-content appends data to a file
 
+when a function is called it creates its own separate pipe where its code is executed until completion where the result is tehn piped to the default output basically meaning $_ cant be used in the execution of the function
+to create a function do function <function name> { <code> } ex. function Hello-World { 'Hello World' } 
+to call a function just type in the <function name> ex Hello-World for the previous example 
+functions are volatile similar to aliases lasting only during the duration of the session which are stored in the 'function' PSDrive
+view all functions in the session using get-childitem function:*
+you can view what a function does using get-content function:<name of function>
+to create a function with a parameter do function <function name> ($<parameter>, $<parameter>) { <code> }
+parameters are referenced in the function code using the variable they were declared as, parameters are optional and dont have to be entered into the function in order for it to work
+function parameters can also be specified using -value ex Hello-World -value boop 
+
+
+
