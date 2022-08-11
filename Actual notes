@@ -165,5 +165,51 @@ to create a function with a parameter do function <function name> ($<parameter>,
 parameters are referenced in the function code using the variable they were declared as, parameters are optional and dont have to be entered into the function in order for it to work
 function parameters can also be specified using -value ex Hello-World -value boop 
 
+parameters can be given default values assuming they are not called by doing 
+function <function name> {
+ param(
+  $parameter1='<default value>',$parameter2='<default value>'
+  )
+ <code>
+}
 
+switch parameters which operate off of boolean logic are made by doing
+function <function name> {
+ param(
+  [switch]
+  $switchparam
+  )
+ <code>
+}
+with code
+if ($switchpro) {
+ write-host yay
+}
+else {
+ write-host switch off
+}
 
+mandatory parameters are made using 
+function <function name> {
+ param(
+  [parameter(Mandatory=$true)]
+   #the manFdatory true forces the function to request a parameter if no arguments are given
+   $param
+  )
+ <code>
+}
+can add a while loop to loop until a parameter is actually given like
+while([string]::IsNullorWhiteSpace($param)) {
+ $param = read-host -prompt "enter a string"
+ #if the parameter is empty the loop will request until a value is entered in the paramter
+}
+
+help messages can be added by doing
+function <function name> {
+ param(
+  [parameter(madatory=$true,HelpMessage=<message>)]
+  [int]$param
+ )
+ <code>
+}
+ 
