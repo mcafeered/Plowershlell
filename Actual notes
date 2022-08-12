@@ -303,6 +303,8 @@ $arr -join('=')
 
 "I really love the weather in California" -replace 'California','Florida'gat 
 
+get-wmiobject win32_networkadapterconfiguration
 
+use -imatch to get matches in $matches
 
 
