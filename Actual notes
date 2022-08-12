@@ -262,6 +262,47 @@ function function-blocks {
   end{} #One time optional run of code block executed before the output is pushed out to the default output
 }
 
+$_ = the current value in the pipeline which can be referenced
+$args = an array of undeclared parameters which can be referenced
+$input = makes a list of all parameters put into the function
+
+the escape character for powershell is ` so newline is `n or `b for backspace, the escape character is ``
+`0 creates a new line since its considered null
+can insert a $ sign into a variable call to perform a command within the call ex. $HowManyNeeded = "One Petabyte can have $(1PB / 2.39MB) instances of DOOM
+
+can -split strings based of a value ex "string -split("r") which would output st `n ing, can split on backslash using -split('\\') which you can then get the index of a specific split using [<number>]
+\w = any letter/number/character
+\W = opposite of \w
+\d = any digit
+\D = not a digit
+\s = whitespace
+\S = not whitespace
+\n = line break ex. newline
+\b = boundary
+$ = start of regex pattern
+^ = end of regex pattern
+| = or
+[a-z] any lowercase letter between a and z 
+[abz] = only matches a b or z
+(abz) = matches pattern abz
+[^abz] = anything but a b or z
+& = and
+* = anything
+? = none or once
+{3} = 3 times
+{3,} = at least 3 times
+{1,3} = minimum of 1 time, max of 3 times
++ = once or any number of times
+
+(yes|no) yes or no
+[a-z0-9] = any lowercase letter or number 0-9
+
+
+$arr = @('Joyner','Lucas')
+$arr -join('=')  
+
+"I really love the weather in California" -replace 'California','Florida'gat 
+
 
 
 
