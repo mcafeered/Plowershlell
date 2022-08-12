@@ -103,6 +103,7 @@ else {
     write-host "No model number found on line2"
 }
 
+
 <# 1 #>
 function q1($var1,$var2,$var3,$var4) {
     <# Return the product of the arguments #>
@@ -129,9 +130,9 @@ function q3 {
     $int=0
     $count=0
     while ([int]$int -ne -1){
-        $int = read-host -prompt "Please enter an integer"
+        [int]$int = read-host -prompt "Please enter an integer"
         if ($int -gt $count) {
-            $count = $num
+            $count = $int
         } 
     }
     return $count
@@ -201,6 +202,3 @@ function q10 ($filepath,$lasthash) {
        return $false 
        } 
 }
-
-
-
